@@ -11,8 +11,8 @@ namespace UI
 		private:
 			// Constants:
 			const float logo_animation_duration = 2.0f;
-			const float logo_width = 600.f;
-			const float logo_height = 134.f;
+			const float logo_width = 700.f;
+			const float logo_height =400.f;
 
 			UIElement::AnimatedImageView* outscal_logo_view;
 

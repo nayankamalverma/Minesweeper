@@ -2,7 +2,7 @@
 
 namespace Global
 {
-	const sf::String Config::outscal_logo_texture_path = "assets/textures/outscal_logo.png";
+	const sf::String Config::outscal_logo_texture_path = "assets/textures/mineLogo.jpg";
 
 	const sf::String Config::background_texture_path = "assets/textures/minesweeper_bg.png";
 
