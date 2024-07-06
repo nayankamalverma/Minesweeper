@@ -12,10 +12,13 @@ namespace Gameplay
         private:
 
             const int tile_size = 32;
+            int slice_count = 12;
 
             UI::UIElement::ButtonView* cell_button;
             CellController* cell_controller;
 
+
+            void setCellTexture();
             void initializeButtonImage(float width, float height);
 
         public:
