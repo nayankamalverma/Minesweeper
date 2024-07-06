@@ -1,5 +1,5 @@
 #pragma once
-#include "BoardView.h"
+#include "BoardView.h"				   
 #include "../Cell/CellController.h"
 
 namespace Gameplay
@@ -9,16 +9,6 @@ namespace Gameplay
 		using namespace Cell;
 		class BoardController
 		{
-			
-
-			BoardView* board_view;
-			CellController* cell_controller;
-
-			void createBoard();
-			void initializeCells();
-			void resetBoard();
-			void deleteBoard();
-			void destroy();
 		public:
 			static const int number_of_rows = 9;
 			static const int number_of_colums = 9;
@@ -32,6 +22,17 @@ namespace Gameplay
 			void render();
 			
 			void reset();
+
+		private:
+
+			BoardView* board_view;
+			CellController* cells[number_of_colums];
+
+			void createBoard();
+			void initializeCells();
+			void resetBoard();
+			void deleteBoard();
+			void destroy();
 		};
 	}
 }
