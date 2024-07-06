@@ -4,9 +4,9 @@ namespace Gameplay
 {
 	namespace Cell
 	{
-		CellModel::CellModel()
+		CellModel::CellModel(int index)
 		{
-			//Yet to implement
+			cell_index = index;
 		}
 
 		CellModel::~CellModel() = default;
@@ -29,6 +29,10 @@ namespace Gameplay
 		void CellModel::setCellValue(CellValue value)
 		{
 			cell_value = value;
+		}
+		int CellModel::getCellIndex()
+		{
+			return cell_index;
 		}
 
 		void CellModel::reset()
