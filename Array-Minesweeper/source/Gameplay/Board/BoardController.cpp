@@ -95,6 +95,12 @@ namespace Gameplay
 			}
 		}
 
+		int BoardController::getMinesCount()
+		{
+			return mines_count;
+		}
+
+
 		void BoardController::destroy()
 		{
 			deleteBoard();
