@@ -20,6 +20,9 @@ namespace Gameplay
 			void initialize();
 			void update();
 			void render();
+
+
+			int getMinesCount();
 			
 			void reset();
 
@@ -33,6 +36,7 @@ namespace Gameplay
 			void resetBoard();
 			void deleteBoard();
 			void destroy();
+
 		};
 	}
 }

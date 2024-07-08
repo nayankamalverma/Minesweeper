@@ -1,10 +1,15 @@
 ﻿#pragma once
+
+#include "../../header/Gameplay/Board/BoardService.h"
+
 namespace Gameplay
 {
 	class GameplayController
 	{
 		const float max_level_duration = 301.0f;
 		float remaining_time;
+
+		Board::BoardService* board_service;
 
 		void updateRemainingTime();
 	public:
@@ -18,5 +23,6 @@ namespace Gameplay
 		void restart();
 
 		float getRemainingTime();
+		int getMinesCount();
 	};
 }
