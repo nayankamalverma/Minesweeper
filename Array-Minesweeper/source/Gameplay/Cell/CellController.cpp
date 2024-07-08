@@ -42,6 +42,12 @@ namespace Gameplay
 			return cell_model->getCellValue();
 		}
 
+		void CellController::setCellState(CellState state)
+		{
+			cell_model->setCellState(state);
+		}
+
+
 		CellState CellController::getCellState()
 		{
 			return cell_model->getCellState();
@@ -75,18 +81,18 @@ namespace Gameplay
 				cell_model->setCellState(CellState::FLAGGED);
 				break;
 			}
-
-			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::FLAG);
 		}
 
 		void CellController::openCell()
 		{
-			if (cell_model->getCellState() != CellState::FLAGGED)
-			{
-				cell_model->setCellState(CellState::OPEN);
-				ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
-			}
+			setCellState(CellState::OPEN);
 		}
+
+		bool CellController::canOpenCell()
+		{
+			return cell_model->getCellState() != CellState::FLAGGED && cell_model->getCellState() != CellState::OPEN;
+		}
+
 
 	}
 }
