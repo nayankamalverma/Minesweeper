@@ -5,6 +5,7 @@
 #include "../../header/Sound/SoundService.h"
 #include "../Gameplay/GameplayService.h"
 #include "../Gameplay/Board/BoardService.h"
+#include "../Time/TimeService.h"
 
 namespace Global
 {
@@ -14,6 +15,7 @@ namespace Global
         Event::EventService* event_service;
         Graphics::GraphicService* graphic_service;
         Sound::SoundService* sound_service;
+        Time::TimeService* time_service;
         UI::UIService* ui_service;
         Gameplay::GameplayService* gameplay_service;
     	Gameplay::Board::BoardService* board_service;
@@ -35,6 +37,7 @@ namespace Global
         Event::EventService* getEventService();
         Graphics::GraphicService* getGraphicService();
         Sound::SoundService* getSoundService();
+        Time::TimeService* getTimeService();
         UI::UIService* getUIService();
         Gameplay::GameplayService* getGameplayService();
     	Gameplay::Board::BoardService* getBoardService();

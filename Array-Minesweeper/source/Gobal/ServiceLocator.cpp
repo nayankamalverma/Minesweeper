@@ -9,6 +9,7 @@ namespace Global
 	using namespace Graphics;
 	using namespace Event;
 	using namespace Sound;
+	using namespace Time;
 	using namespace UI;
 	using namespace Gameplay;
 	using namespace Gameplay::Board;
@@ -18,6 +19,7 @@ namespace Global
 		graphic_service = nullptr;
 		event_service = nullptr;
 		sound_service = nullptr;
+		time_service = nullptr;
 		ui_service = nullptr;
 		gameplay_service = nullptr;
 		board_service = nullptr;
@@ -32,6 +34,7 @@ namespace Global
 		event_service = new EventService();
 		graphic_service = new GraphicService();
 		sound_service = new SoundService();
+		time_service = new TimeService();
 		ui_service = new UIService();
 		gameplay_service = new GameplayService();
 		board_service = new	BoardService();
@@ -42,6 +45,7 @@ namespace Global
 		graphic_service->initialize();
 		sound_service->initialize();
 		event_service->initialize();
+		time_service->initialize();
 		ui_service->initialize();
 		gameplay_service->initialize();
 		board_service->initialize();
@@ -50,6 +54,7 @@ namespace Global
 	void ServiceLocator::update()
 	{
 		event_service->update();
+		time_service->update();
 		ui_service->update();
 		graphic_service->update();
 		if(GameService::getGameState()==GameState::GAMEPLAY)
@@ -61,13 +66,14 @@ namespace Global
 
 	void ServiceLocator::render()
 	{
-		ui_service->render();
+		
 		graphic_service->render();
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
 			gameplay_service->render();
 			board_service->render();
 		}
+		ui_service->render();
 	}
 
 	void ServiceLocator::clearAllServices()
@@ -78,6 +84,7 @@ namespace Global
 		delete(event_service);
 		delete(gameplay_service);
 		delete(board_service);
+		delete(time_service);
 	}
 
 	ServiceLocator* ServiceLocator::getInstance()
@@ -91,6 +98,8 @@ namespace Global
 	GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
 
 	SoundService* ServiceLocator::getSoundService() { return sound_service; }
+
+	Time::TimeService* ServiceLocator::getTimeService() { return time_service; }
 
 	UIService* ServiceLocator::getUIService() { return ui_service; }
 
