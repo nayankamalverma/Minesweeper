@@ -23,12 +23,18 @@ namespace Gameplay
 			void update();
 			void render();
 
+			void flagCell();
+			void openCell();
+
+			bool canOpenCell();
+
 			CellValue getCellValue();
+
+			void setCellState(CellState state);
 			CellState getCellState();
 
 			sf::Vector2i getCellPosition();
-			void flagCell();
-			void openCell();
+
 			void reset();
 		};
 	}
