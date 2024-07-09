@@ -20,6 +20,7 @@ namespace Gameplay
 		GameResult game_result;
 		Board::BoardService* board_service;
 
+		bool isTimeOver();
 		void beginGameOverTimer();
 		void updateRemainingTime();
 		void showCredits();
