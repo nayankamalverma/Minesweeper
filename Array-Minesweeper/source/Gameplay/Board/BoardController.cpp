@@ -105,6 +105,7 @@ namespace Gameplay
 					board_state = BoardState::PLAYING;
 				}
 
+				processCellValue(cell_position); //Handles different cell value
 				board[cell_position.x][cell_position.y]->openCell();
 			}
 		}
@@ -207,15 +208,30 @@ namespace Gameplay
 		{
 			switch (button_type)
 			{
-			case UI::UIElement::ButtonType::LEFT_MOUSE_BUTTON:
+			case ButtonType::LEFT_MOUSE_BUTTON:
 				openCell(cell_controller->getCellPosition());
 				break;
-			case UI::UIElement::ButtonType::RIGHT_MOUSE_BUTTON:
+			case ButtonType::RIGHT_MOUSE_BUTTON:
 				flagCell(cell_controller->getCellPosition());
 				break;
 			}
 		}
 
+		void BoardController::processCellValue(sf::Vector2i cell_position)
+		{
+			switch (board[cell_position.x][cell_position.y]->getCellValue())
+			{
+			case CellValue::EMPTY:
+				//processEmptyCell(cell_position); Yet to implement
+				break;
+			case CellValue::MINE:
+				//processMineCell(cell_position); Yet to implement
+				break;
+			default:
+				ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+				break;
+			}
+		}
 
 		int BoardController::getMinesCount()
 		{
