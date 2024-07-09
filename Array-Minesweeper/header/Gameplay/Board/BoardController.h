@@ -60,6 +60,7 @@ namespace Gameplay
 			void openAllCells();
 			void openEmptyCells(sf::Vector2i cell_position);
 			void flagCell(sf::Vector2i cell_position);
+			void flagAllMines();
 			void populateBoard(sf::Vector2i cell_position);
 			void populateMines(sf::Vector2i cell_position);
 			void populateCells();
