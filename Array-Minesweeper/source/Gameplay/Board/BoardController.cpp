@@ -95,6 +95,26 @@ namespace Gameplay
 			}
 		}
 
+		void BoardController::showBoard()
+		{
+
+			switch (ServiceLocator::getInstance()->getBoardService()->getBoardState())
+			{
+			case Gameplay::Board::BoardState::FIRST_CELL:
+				populateBoard(sf::Vector2i(0, 0));
+				openAllCells();
+				break;
+			case Gameplay::Board::BoardState::PLAYING:
+				openAllCells();
+				break;
+			case Gameplay::Board::BoardState::COMPLETED:
+				break;
+			default:
+				break;
+			}
+		}
+
+
 		void BoardController::openCell(sf::Vector2i cell_position)
 		{
 			if (board[cell_position.x][cell_position.y]->canOpenCell())
@@ -112,6 +132,7 @@ namespace Gameplay
 
 		void BoardController::openAllCells()
 		{
+
 			if (board_state == BoardState::FIRST_CELL)
 			{
 				populateBoard(sf::Vector2i(0, 0));
@@ -263,7 +284,7 @@ namespace Gameplay
 				processEmptyCell(cell_position); 
 				break;
 			case CellValue::MINE:
-				//processMineCell(cell_position); Yet to implement
+				processMineCell(cell_position);
 				break;
 			default:
 				ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
@@ -277,6 +298,12 @@ namespace Gameplay
 			openEmptyCells(cell_position);
 
 		}
+		void BoardController::processMineCell(sf::Vector2i cell_position)
+		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::EXPLOSION);
+			ServiceLocator::getInstance()->getGameplayService()->endGame(GameResult::LOST);
+		}
+
 
 
 		int BoardController::getMinesCount()
