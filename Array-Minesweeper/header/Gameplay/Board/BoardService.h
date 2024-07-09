@@ -5,6 +5,7 @@ namespace Gameplay
 {
 	namespace Board
 	{
+		using namespace UI::UIElement;
 		class BoardService
 		{
 			BoardController* board_controller;
