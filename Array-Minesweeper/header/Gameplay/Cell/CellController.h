@@ -29,6 +29,7 @@ namespace Gameplay
 			bool canOpenCell();
 
 			CellValue getCellValue();
+			void setCellValue(CellValue value);
 
 			void setCellState(CellState state);
 			CellState getCellState();
