@@ -65,6 +65,8 @@ namespace Gameplay
 			bool isValidCellPosition(sf::Vector2i cell_position);
 
 			void processCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type);
+			void processCellValue(sf::Vector2i cell_position);
+			void processEmptyCell(sf::Vector2i cell_position);
 
 			int getMinesCount();
 			BoardState getBoardState();
